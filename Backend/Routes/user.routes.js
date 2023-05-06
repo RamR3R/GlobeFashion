@@ -14,4 +14,11 @@ userRouter.post("/register",async(req,res)=>{
     res.send({msg:"User registered Successfull",Data:data});
 });
 
+userRouter.post("/login",async(req,res)=>{
+    res.send({msg:"Logged In successfull",User:req.name});
+});
+
+userRouter.patch("edit/:id",async(req,res)=>{
+    
+})
 module.exports = userRouter;
