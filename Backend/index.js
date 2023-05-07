@@ -4,10 +4,13 @@ const connection = require("./db");
 const userRouter = require('./Routes/user.routes');
 const productRouter = require('./Routes/product.routes');
 const orderRouter = require('./Routes/order.routes');
+const cors = require("cors");
 
 app.use(express.json());
 
 app.get('/', (req, res) => res.send('Globe Fashion API'));
+
+app.use(cors());
 
 app.use("/users",userRouter);
 
