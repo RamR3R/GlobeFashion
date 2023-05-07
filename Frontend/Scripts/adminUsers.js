@@ -1,12 +1,16 @@
 const baseUrl = `http://localhost:3030/users/`;
 
-fetch(baseUrl)
+renderUsers();
+
+function renderUsers()
+{
+    fetch(baseUrl)
 .then(res=>res.json())
 .then(data=>{
     console.log(data.data);
     displayUsers(data.data);
 })
-
+}
 
 function displayUsers(data)
 {
