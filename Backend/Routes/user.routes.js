@@ -13,7 +13,7 @@ userRouter.post("/register",async(req,res)=>{
     data.noOfOrder = 0;
     UserModel.insertMany([data]);
     res.send({msg:"User registered Successfull",Data:data});
-});
+}); 
 
 userRouter.post("/login",async(req,res)=>{
     res.send({msg:"Logged In successfull",User:req.name});
