@@ -3,6 +3,7 @@ const app = express();
 const connection = require("./db");
 const userRouter = require('./Routes/user.routes');
 const productRouter = require('./Routes/product.routes');
+const orderRouter = require('./Routes/order.routes');
 
 app.use(express.json());
 
@@ -11,6 +12,8 @@ app.get('/', (req, res) => res.send('Globe Fashion API'));
 app.use("/users",userRouter);
 
 app.use("/products",productRouter);
+
+app.use("/orders",orderRouter);
 
 app.listen(process.env.PORT, async() =>{
     try{
