@@ -10,6 +10,7 @@ userRouter.post("/register",async(req,res)=>{
     const data = req.body;
     const id = await UserModel.find();
     data.userId = id.length + 1;
+    data.noOfOrder = 0;
     UserModel.insertMany([data]);
     res.send({msg:"User registered Successfull",Data:data});
 });

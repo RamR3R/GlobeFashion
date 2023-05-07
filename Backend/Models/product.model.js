@@ -1,22 +1,20 @@
 const mongoose = require("mongoose");
 const productSchema  = mongoose.Schema({
-    title:String,
+    name:String,
     price: Number,
-    discount:String,
-    stockstatus:String,
-    discription:String,
-    ASIN:String,
+    discount:Number,
+    finalprice:Number,
+    stock:String,
+    description:Array,
+    id:Number,
     category:String,
-    dimensions:String,
+    sex:String,
+    size:Array,
     rating:String,
-    longdisp:String,
-    bestseller:String,
     image1:String,
     image2:String,
     image3:String,
-    image4:String,
-    image5:String,
-    image6:String
+    image4:String
 });
 
 const ProductModel = mongoose.model("product",productSchema);
