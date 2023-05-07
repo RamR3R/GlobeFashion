@@ -1,14 +1,20 @@
 const express = require('express');
 const app = express();
-const connnection = require("./db");
+const connection = require("./db");
+const userRouter = require('./Routes/user.routes');
+const productRouter = require('./Routes/product.routes');
 
 app.use(express.json());
 
 app.get('/', (req, res) => res.send('Globe Fashion API'));
 
+app.use("/users",userRouter);
+
+app.use("/products",productRouter);
+
 app.listen(process.env.PORT, async() =>{
     try{
-        await connnection;
+        await connection;
         console.log("Conected to DB");
         console.log(`Server Running in PORT ${process.env.PORT}`);
     }
