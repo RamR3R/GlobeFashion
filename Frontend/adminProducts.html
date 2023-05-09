@@ -83,13 +83,72 @@
 				</div>
 			</form>
 			<span class="text">Admin</span>
-			<span class="text" id="admin-name">Name of admin</span>
-			<a href="#" class="profile">
-				<img src="img/people.png">
-			</a>
+			<span class="text" id="admin-name"></span>
 		</nav>
 		<!-- NAVBAR -->
+		<menu id="edit-menu" class="noshow">
+			<h1>Edit the Product</h1>
+			<br><br>
+			<form id="edit-form">
+				<label for="name">Name:<input type="text" id="name" name="name"></label>
+				<br><br>
 
+				<label for="price">Price:<input type="number" id="price" name="price"></label>
+				<br><br>
+			  
+				<label for="discount">Discount:<input type="number" id="discount" name="discount"></label>
+				<br><br>
+			  
+				<label for="finalprice">Final Price:<input type="number" id="finalprice" name="finalprice"></label>
+				<br><br>
+			  
+				<label for="stock">Stock:<input type="number" id="stock" name="stock"></label>
+				<br><br>
+			  
+				<label for="description">Description:<textarea id="description" name="description"></textarea></label>
+				<br><br>
+			  
+				<label for="id">ID:<input type="number" id="id" name="id"></label>
+				<br><br>
+			  
+				<label for="category">Category:<select type="text" id="category" name="category">
+					<option value="Winterwear">Winter Wear</option>
+					<option value="Sportwear">Sport Wear</option>
+					<option value="Topwear">Top Wear</option>
+					<option value="Bottomwear">Bottom Wear</option>
+					<option value="Footwear">Footwear</option>
+					</select>
+				</label>
+				<br><br>
+			  
+				<label for="sex">Sex: <select name="sex" id="sex">
+					<option value="M">Male</option>
+					<option value="F">Female</option>
+				</select></label>
+				<br><br>
+			  
+				<label for="size">Size:<input type="text" id="size" name="size"></label>
+				<br><br>
+			  
+				<label for="rating">Rating:<input type="text" id="rating" name="rating"></label>
+				<br><br>
+			  
+				<label for="image1">Image 1:<input type="text" id="image1" name="image1"></label>
+				<br><br>
+			  
+				<label for="image2">Image 2:<input type="text" id="image2" name="image2"></label>
+				<br><br>
+			  
+				<label for="image3">Image 3:<input type="text" id="image3" name="image3"></label>
+				<br><br>
+			  
+				<label for="image4">Image 4:<input type="text" id="image4" name="image4"></label>
+				<br><br>
+			  
+				<input type="submit" value="Submit">
+			  </form>
+			  
+		</menu>
 		<!-- MAIN -->
 		<main>
 			<div class="head-title">
@@ -116,50 +175,21 @@
 			<div class="table-data">
 				<div class="order">
 					<div class="head">
-						<h3>Recent Orders</h3>
+						<h3>Products Listing</h3>
 						<i class='bx bx-filter' ></i>
 					</div>
 					<table>
 						<thead>
-							<tr>
-								<th>User</th>
-								<th>Date Order</th>
-								<th>Status</th>
+							<tr class="tr">
+								<th>Product</th>
+								<th>Product Id</th>
+								<th>Selling</th>
+								<th>Discount</th>
+								<th>Stock</th>
+								<th>Edit</th>
 							</tr>
 						</thead>
-						<tbody id="order-tbody">
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Delivered</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Out to Delivery</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Delivered</span></td>
-							</tr>
+						<tbody id="products-tbody">
 						</tbody>
 					</table>
 				</div>

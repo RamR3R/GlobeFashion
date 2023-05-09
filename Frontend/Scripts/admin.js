@@ -1,5 +1,8 @@
 const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
 
+const adminName = localStorage.getItem("admin-info");
+document.getElementById("admin-name").innerText = adminName;
+
 allSideMenu.forEach(item=> {
 	const li = item.parentElement;
 
