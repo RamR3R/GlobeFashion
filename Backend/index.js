@@ -18,11 +18,11 @@ app.use("/products",productRouter);
 
 app.use("/orders",orderRouter);
 
-app.listen(process.env.PORT, async() =>{
+app.listen(3000, async() =>{
     try{
         await connection;
         console.log("Conected to DB");
-        console.log(`Server Running in PORT ${process.env.PORT}`);
+        console.log(`Server Running in PORT ${3000}`);
     }
     catch(err)
     {
