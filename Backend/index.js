@@ -22,7 +22,7 @@ app.listen(3000, async() =>{
     try{
         await connection;
         console.log("Conected to DB");
-        console.log(`Server Running in PORT ${3000}`);
+        console.log(`Server Running in PORT 3000`);
     }
     catch(err)
     {
