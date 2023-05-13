@@ -1,4 +1,4 @@
-const baseUrl = `http://localhost:3030/products/`;
+const baseUrl = `http://localhost:8080/products/`;
 
 renderUsers();
 
