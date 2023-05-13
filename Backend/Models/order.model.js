@@ -6,7 +6,8 @@ const orderSchema = mongoose.Schema({
     orderStatus: String,
     delivered:Boolean,
     deliveryAddress:String,
-    userName :String
+    userName :String,
+    price : Number
 });
 
 const OrderModel = mongoose.model("order",orderSchema);

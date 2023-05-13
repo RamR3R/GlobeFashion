@@ -21,6 +21,21 @@ userRouter.post("/register",async(req,res)=>{
     }
 }); 
 
+userRouter.get('/download', async(req, res) => {
+    // Find all data from MongoDB
+    data = await UserModel.find();
+      // Convert data to CSV format
+    let csv = `name,id,email,no Of Orders \n`;
+    csv += data.map(row => `${row.name},${row.userId},${row.email},${row.noOfOrder}`).join('\n');
+
+    // Set response headers for file download
+    res.setHeader('Content-Type', 'text/csv');
+    res.setHeader('Content-Disposition', 'attachment; filename=data.csv');
+
+    // Send the CSV file to the client
+    res.send(csv);
+    });
+
 userRouter.post("/login",async(req,res)=>{
     const data = await UserModel.find({email:req.email,passsword:req.passsword});
     if(data.length>0)

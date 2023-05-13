@@ -8,7 +8,8 @@ let adminUrl = `http://localhost:8080/users`;
 fetch(adminUrl)
 .then(res=>res.json())
 .then(data=>{
-  adminData = data;
+  adminData = data.data;
+  console.log(adminData);
 })
 
 navImg.addEventListener("click", function () {
@@ -25,7 +26,7 @@ form.addEventListener("submit", (e) => {
     {
       localStorage.setItem("admin-info",JSON.stringify(element));
       alert("Login as Super Admin");
-      window.location.href = "./adminDashboard.html";
+      window.location.href = "./adminIndex.html";
     }  
   });
 });

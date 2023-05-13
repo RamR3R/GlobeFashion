@@ -53,7 +53,22 @@ productRouter.post("/csv",async(req,res)=>{
         console.log('Data upload completed.');
         res.send("Data Uploaded to DB");
   });
-})
+});
+
+productRouter.get('/download', async(req, res) => {
+    // Find all data from MongoDB
+    data = await ProductModel.find();
+      // Convert data to CSV format
+    let csv = `name,price,discount,finalprice,image1 \n}`;
+    csv += data.map(row => `${row.name},${row.price},${row.discount},${row.finalprice},${row.image1}`).join('\n');
+
+    // Set response headers for file download
+    res.setHeader('Content-Type', 'text/csv');
+    res.setHeader('Content-Disposition', 'attachment; filename=data.csv');
+
+    // Send the CSV file to the client
+    res.send(csv);
+    });
 
 productRouter.delete("/delete/:id",async(req,res)=>{
     await ProductModel.findByIdAndDelete(req.params.id);
