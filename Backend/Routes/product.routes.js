@@ -2,8 +2,14 @@ const express = require("express");
 const ProductModel = require("../Models/product.model");
 const csv = require('csv-parser');
 const fs = require('fs');
+const multer = require("multer");
+const upload = multer({ dest: 'uploads/' });
+const cors = require("cors");
+const path = require("path");
 
 const productRouter = express.Router();
+
+productRouter.use(cors());
 
 productRouter.get("/",async(req,res)=>{
     const data = await ProductModel.find();
@@ -23,6 +29,29 @@ productRouter.patch("/edit/:id",async(req,res)=>{
 })
 
 productRouter.post("/csv",async(req,res)=>{
+});
+productRouter.post('/upload/csv', upload.single('csv'), (req, res) => {
+    const storage = multer.memoryStorage();
+    const upload = multer({ storage });
+
+    // Access the uploaded file using req.file
+    const file = req.file;
+
+    const destinationFolder = './csv';
+  
+    // Build the full file path
+    const filePath = path.join(destinationFolder, "data.csv");
+  
+    // Move the file to the desired destination
+    fs.rename(file.path, filePath, (err) => {
+      if (err) {
+        console.error('Error uploading file', err);
+        res.sendStatus(500);
+      } else {
+        console.log('File uploaded', filePath);
+        res.sendStatus(200);
+      }
+    });
     fs.createReadStream('../csv/data.csv')
     .pipe(csv())
     .on('data', (row) => {
@@ -53,7 +82,9 @@ productRouter.post("/csv",async(req,res)=>{
         console.log('Data upload completed.');
         res.send("Data Uploaded to DB");
   });
-});
+  
+    // Send a response back to the client
+  });
 
 productRouter.get('/download', async(req, res) => {
     // Find all data from MongoDB

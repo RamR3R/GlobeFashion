@@ -1,4 +1,5 @@
 const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
+const baseUrl = `http://localhost:8080/`;
 
 const admin = JSON.parse(localStorage.getItem("admin-info"));
 document.getElementById("admin-name").innerText = admin.name;
@@ -14,7 +15,43 @@ allSideMenu.forEach(item=> {
 	})
 });
 
+function uploadCSV(event) {
+	event.preventDefault();
 
+	// Get the selected file
+	var fileInput = document.getElementById('csvFile');
+	var file = fileInput.files[0];
+
+	// Create a FileReader object
+	var reader = new FileReader();
+
+	// Read the file
+	reader.onload = function (e) {
+	  var contents = e.target.result;
+
+	  // Save the file locally
+	  saveCSV(contents);
+	};
+
+	reader.readAsText(file);
+  }
+
+function saveCSV(contents)
+{
+	var blob = new Blob([contents], { type: 'text/csv' });
+	fetch(`${baseUrl}products/upload/csv`,{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json",
+        },
+		file : blob
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        console.log(data);
+    })
+    .catch(err=>console.log(err));
+}
 
 
 // TOGGLE SIDEBAR
