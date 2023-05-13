@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="./Styles/adminStyles.css">
+
+	<title>AdminHub</title>
+</head>
+<body>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="./adminIndex.html" class="brand">
+			<img src="./Assets/logo.png" class="bx img" alt="">
+			<span class="text">Admin</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="./adminIndex.html">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<a href="./adminProducts.html">
+					<i class='bx bxs-shopping-bag-alt' ></i>
+					<span class="text">Products</span>
+				</a>
+			</li>
+			<li>
+				<a href="./addProducts.html">
+					<i class='bx bxs-calendar-check' ></i>
+					<span class="text">Add Products</span>
+				</a>
+			</li>
+			<li>
+				<a href="./adminOrders.html">
+					<i class='bx bxs-doughnut-chart' ></i>
+					<span class="text">Orders</span>
+				</a>
+			</li>
+			<li>
+				<a href="./adminUsers.html">
+					<i class='bx bxs-group' ></i>
+					<span class="text">Users</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="side-menu">
+			<li>
+				<a href="./adminLogin">
+					<i class='bx bxs-smile' ></i>
+					<span class="text" id="admin-info"></span>
+				</a>
+			</li>
+			<li>
+				<a href="./adminLogin" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<form action="#">
+				<div class="form-input">
+					<input type="search" placeholder="Enter to Search Product">
+					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+				</div>
+			</form>
+			<span class="text">Admin</span>
+			<span class="text" id="admin-name"></span>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main id="download-data">
+            <a href="http://localhost:8080/users/download" class="btn-download">
+                <i class='bx bxs-cloud-download' ></i>
+                <span class="text">Download Users Data</span>
+            </a>
+            <br>
+            <br>
+            <a href="http://localhost:8080/products/download" class="btn-download">
+                <i class='bx bxs-cloud-download' ></i>
+                <span class="text">Download Products Data</span>
+            </a>
+            <br><br>
+            <a href="http://localhost:8080/orders/download" class="btn-download">
+                <i class='bx bxs-cloud-download' ></i>
+                <span class="text">Download Orders Data</span>
+            </a>
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+	
+
+	<script src="./Scripts/admin.js"></script>
+</body>
+</html>

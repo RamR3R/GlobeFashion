@@ -481,6 +481,11 @@ body {
 	background-color: var(--red);
 }
 
+#download-data{
+	text-decoration: none;
+	color: #3C91E6;
+}
+
 /* MAIN */
 
 /* Responsiveness of the site for tablets */
