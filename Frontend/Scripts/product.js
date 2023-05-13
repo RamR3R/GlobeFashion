@@ -85,3 +85,4 @@ productBlock.appendChild(productDetails);
 productContainer.appendChild(productBlock);
 
 }
+
